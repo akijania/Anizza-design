@@ -1,20 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Header} from './../Header/Header';
-import {Footer} from './../Footer/Footer';
+import Grid from '@material-ui/core/Grid';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 import clsx from 'clsx';
 
 // import { connect } from 'react-redux';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
-import styles from './MainLayout.module.scss';
+import styles from './TopBar.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
-    <Header />
-    {children}
-    <Footer />
+    <Grid container spacing={3}>
+      <Grid item xs={1}>
+      </Grid>
+      <Grid item xs={10}>
+        <h1>Anizza design</h1>
+      </Grid>
+      <Grid item xs={1}>
+        <Link to="/" className={styles.icon}>
+          <ShoppingBasketIcon fontSize='large' className={styles.icon} />
+        </Link>
+      </Grid>
+    </Grid>
+
   </div>
 );
 
@@ -34,7 +45,7 @@ Component.propTypes = {
 // const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  Component as MainLayout,
-  // Container as MainLayout,
-  Component as MainLayoutComponent,
+  Component as TopBar,
+  // Container as TopBar,
+  Component as TopBarComponent,
 };

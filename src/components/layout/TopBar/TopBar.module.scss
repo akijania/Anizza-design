@@ -1,0 +1,15 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Pompiere', cursive;
+    font-size: 40px;
+}
+
+.icon {
+    margin-top: 20px;
+    color: $black;
+}
