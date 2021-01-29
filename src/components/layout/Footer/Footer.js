@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -18,7 +17,7 @@ const Component = ({className, children}) => (
   <div className={clsx(className, styles.root)}>
     <footer className={styles.root}>
       <div className={styles.footerMenu}>
-        <Container maxWidth="xl">
+        <div className={styles.container}>
           <Grid container spacing={3}>
             <Grid item xs={3}>
               <div className={styles.menuWrapper}>
@@ -104,10 +103,10 @@ const Component = ({className, children}) => (
             </Grid>
     
           </Grid>
-        </Container>
+        </div>
       </div>
       <div className={styles.bottomBar}>
-        <Container maxWidth="xl">
+        <div className={styles.container}>
           <Grid container spacing={3}>
 
             <Grid item xs={6}  className={styles.copyright}>
@@ -116,7 +115,7 @@ const Component = ({className, children}) => (
            
           </Grid>
          
-        </Container>
+        </div>
       </div>
     </footer>
   </div>
