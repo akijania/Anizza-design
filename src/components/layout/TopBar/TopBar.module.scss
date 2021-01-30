@@ -2,14 +2,25 @@
 
 .root {
     text-align: center;
-}
+
 
 h1 {
     font-family: 'Pompiere', cursive;
-    font-size: 40px;
+    font-size: 50px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
+
+p {
+    font-family: 'Pompiere', cursive;
+    font-size: 14px;
+    padding-top: 0;
+    margin-top: 0;
+}
+
 
 .icon {
     margin-top: 20px;
     color: $black;
+}
 }

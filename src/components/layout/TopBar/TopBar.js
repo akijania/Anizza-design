@@ -18,6 +18,7 @@ const Component = ({ className, children }) => (
       </Grid>
       <Grid item xs={10}>
         <h1>Anizza design</h1>
+        <p>HOMEMADE CLOTHES</p>
       </Grid>
       <Grid item xs={1}>
         <Link to="/" className={styles.icon}>

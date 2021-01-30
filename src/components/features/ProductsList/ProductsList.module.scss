@@ -38,4 +38,13 @@
       }
     }
   }
+  .activeCategory {
+    position: relative;
+    font-size: 80px;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    font-family: 'Pompiere', cursive;
+    top: 340px;
+    width: 300px;
+  }
 }
