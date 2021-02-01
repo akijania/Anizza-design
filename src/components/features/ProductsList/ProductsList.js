@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/categoriesRedux.js';
-import { getAllProducts } from '../../../redux/productsRedux';
+import { getAllProducts, fetchPublishedProducts } from '../../../redux/productsRedux';
 import Grid from '@material-ui/core/Grid';
 import { ProductBox } from '../ProductBox/ProductBox';
 
@@ -15,6 +15,11 @@ class Component extends React.Component {
   state = {
     activeCategory: 'collection',
   };
+  componentDidMount() {
+    const { fetchPublishedProducts } = this.props;
+    fetchPublishedProducts();
+  }
+
   handleCategoryChange(newCategory) {
     this.setState({ activeCategory: newCategory });
   }
@@ -28,18 +33,22 @@ class Component extends React.Component {
       <div className={clsx(className, styles.root)}>
         <div className={styles.container}>
           <div>
-            <ul className={styles.menu}>
-              {categories.map((item) => (
-                <li key={item.id}>
-                  <button
-                    className={item.id === activeCategory ? styles.active : ''}
-                    onClick={() => this.handleCategoryChange(item.id)}
-                  >
-                    {item.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <Grid container justify="flex-end">
+              <Grid item xs={8}>
+                <ul className={styles.menu}>
+                  {categories.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        className={item.id === activeCategory ? styles.active : ''}
+                        onClick={() => this.handleCategoryChange(item.id)}
+                      >
+                        {item.name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </Grid>
+            </Grid>
           </div>
           <div>
             <Grid container justify="space-between">
@@ -48,15 +57,15 @@ class Component extends React.Component {
                 </div>
               </Grid>
               <Grid item xs={8}>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} className={styles.list}>
                   {activeCategory === 'collection'
                     ? products.map((item) => (
-                      <Grid item xs={6} key={item.id}>
+                      <Grid item xs={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))
                     : categoryProducts.map((item) => (
-                      <Grid item xs={6} key={item.id}>
+                      <Grid item xs={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))}
@@ -80,6 +89,7 @@ Component.propTypes = {
       name: PropTypes.string,
     })
   ),
+  fetchPublishedProducts: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -87,11 +97,11 @@ const mapStateToProps = (state) => ({
   products: getAllProducts(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  fetchPublishedProducts: () => dispatch(fetchPublishedProducts()),
+});
 
-const Container = connect(mapStateToProps)(Component);
+const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
   // Component as ProductsList,

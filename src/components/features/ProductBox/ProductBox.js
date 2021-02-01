@@ -9,24 +9,24 @@ import clsx from 'clsx';
 
 import styles from './ProductBox.module.scss';
 
-const Component = ({ id, name, image, price, className }) => (
+const Component = ({ _id, title, photo, price, className }) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.image}>
-      <Link to={`/product${id}`}>
-        <img src={image} alt={name}></img>
+      <Link to={`/product/${_id}`}>
+        <img src={photo} alt={title}></img>
       </Link>
     </div>
-    <Link to={`/product${id}`}>
-      <p>{name}</p>
+    <Link to={`/product/${_id}`}>
+      <p>{title}</p>
     </Link>
     <p>{price} $</p>
   </div>
 );
 
 Component.propTypes = {
-  id: PropTypes.number,
-  name: PropTypes.string,
-  image: PropTypes.string,
+  _id: PropTypes.string,
+  title: PropTypes.string,
+  photo: PropTypes.string,
   price: PropTypes.number,
   className: PropTypes.string,
 };

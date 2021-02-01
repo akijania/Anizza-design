@@ -7,9 +7,9 @@
   .container {
     margin-right: auto;
     margin-left: auto;
-    max-width: 1100px;
-    padding-right: 10px;
-    padding-left: 10px;
+    max-width: 1200px;
+    padding-right: 50px;
+    padding-left: 50px;
   }
 
   .menu {
@@ -38,6 +38,11 @@
       }
     }
   }
+
+  .list {
+    margin: 30px 0 50px 0;
+  }
+
   .activeCategory {
     position: relative;
     font-size: 80px;
@@ -46,5 +51,7 @@
     font-family: 'Pompiere', cursive;
     top: 340px;
     width: 300px;
+    color: $lightGray;
+    z-index: -1;
   }
 }

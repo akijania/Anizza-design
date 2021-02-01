@@ -13,20 +13,19 @@ import styles from './TopBar.module.scss';
 
 const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
-    <Grid container spacing={3}>
-      <Grid item xs={1}>
-      </Grid>
-      <Grid item xs={10}>
-        <h1>Anizza design</h1>
-        <p>HOMEMADE CLOTHES</p>
+    <Grid container justify="space-between">
+      <Grid item xs={4}>
+        <div className={styles.logo}>
+          <h1>Anizza design</h1>
+          <p>HOMEMADE CLOTHES</p>
+        </div>
       </Grid>
       <Grid item xs={1}>
         <Link to="/" className={styles.icon}>
-          <ShoppingBasketIcon fontSize='large' className={styles.icon} />
+          <ShoppingBasketIcon fontSize="large" className={styles.icon} />
         </Link>
       </Grid>
     </Grid>
-
   </div>
 );
 

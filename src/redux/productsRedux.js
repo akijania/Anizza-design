@@ -24,7 +24,7 @@ export const loadProducts = (payload) => ({ payload, type: LOAD_PRODUCTS });
 export const loadProduct = (payload) => ({ payload, type: LOAD_PRODUCT });
 
 /* thunk creators */
-export const fetchPublished = () => {
+export const fetchPublishedProducts = () => {
   return (dispatch, getState) => {
     const { products } = getState();
     if (!products.data.length || products.loading.active === false) {
