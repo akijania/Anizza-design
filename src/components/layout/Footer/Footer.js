@@ -19,7 +19,7 @@ const Component = ({className, children}) => (
       <div className={styles.footerMenu}>
         <div className={styles.container}>
           <Grid container spacing={3}>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3}>
               <div className={styles.menuWrapper}>
                 <h6>Information</h6>
                 <ul>
@@ -38,7 +38,7 @@ const Component = ({className, children}) => (
                 </ul>
               </div>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3}>
               <div className={styles.menuWrapper}>
                 <h6>Information</h6>
                 <ul>
@@ -57,7 +57,7 @@ const Component = ({className, children}) => (
                 </ul>
               </div>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={6} md={3}>
               <div className={styles.menuWrapper}>
                 <h6>Orders</h6>
                 <ul>
@@ -76,7 +76,7 @@ const Component = ({className, children}) => (
                 </ul>
               </div>
             </Grid>
-            <Grid item xs={3} className={styles.socialMedia}>
+            <Grid item xs={6} md={3} className={styles.socialMedia}>
               <h6>Be with us on:</h6>
               <ul>
                 <li>
@@ -109,7 +109,7 @@ const Component = ({className, children}) => (
         <div className={styles.container}>
           <Grid container spacing={3}>
 
-            <Grid item xs={6}  className={styles.copyright}>
+            <Grid item xs={12}  className={styles.copyright}>
               <p>©Copyright 2021 Anizza design | All Rights Reserved</p>
             </Grid>
            

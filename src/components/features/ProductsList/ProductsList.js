@@ -60,12 +60,12 @@ class Component extends React.Component {
                 <Grid container spacing={3} className={styles.list}>
                   {activeCategory === 'collection'
                     ? products.map((item) => (
-                      <Grid item xs={6} key={item._id}>
+                      <Grid item xs={12} md={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))
                     : categoryProducts.map((item) => (
-                      <Grid item xs={6} key={item._id}>
+                      <Grid item xs={12} md={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))}
