@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 /* selectors */
 export const getAllProducts = ({products}) => products.data;
+export const getProduct = ({products}) => products.product;
 
 /* action name creator */
 const reducerName = 'products';

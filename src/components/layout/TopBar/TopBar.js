@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import Badge from '@material-ui/core/Badge';
 
 import clsx from 'clsx';
 
@@ -15,14 +16,18 @@ const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <Grid container justify="space-between">
       <Grid item xs={4}>
-        <div className={styles.logo}>
-          <h1>Anizza design</h1>
-          <p>HOMEMADE CLOTHES</p>
-        </div>
+        <Link to='/'>
+          <div className={styles.logo}>
+            <h1>Anizza design</h1>
+            <p>HOMEMADE CLOTHES</p>
+          </div>
+        </Link>
       </Grid>
       <Grid item xs={1}>
         <Link to="/" className={styles.icon}>
-          <ShoppingBasketIcon fontSize="large" className={styles.icon} />
+          <Badge badgeContent={1} color="secondary" className={styles.badge}>
+            <ShoppingBasketIcon fontSize="large" className={styles.icon} />
+          </Badge>
         </Link>
       </Grid>
     </Grid>

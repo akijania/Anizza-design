@@ -7,9 +7,16 @@
   max-width: 1200px;
   padding-right: 50px;
   padding-left: 50px;
-
+  
   .logo {
     position: fixed;
+    border: solid 10px black;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+
+  .badge{
+    top: 40px;
   }
 
   h1 {
@@ -17,6 +24,10 @@
     font-size: 60px;
     padding-bottom: 0;
     margin-bottom: 0;
+    color: $text-color;
+    &:hover {
+      text-shadow: 2px 2px $lightGray;
+    }
   }
 
   p {
@@ -24,11 +35,14 @@
     font-size: 14px;
     padding-top: 0;
     margin-top: 0;
+    color: $text-color;
+    &:hover {
+      text-shadow: 2px 2px $lightGray;
+    }
   }
 
 
   .icon {
-    margin-top: 20px;
     color: $black;
   }
 }
