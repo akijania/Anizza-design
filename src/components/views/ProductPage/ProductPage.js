@@ -40,50 +40,51 @@ class Component extends React.Component {
               <img src={product.photo} alt={product.title} />
             </Grid>
             <Grid item xs={8} md={4}>
-              <div className={styles.content}>
-                <h2>{product.title}</h2>
-                <p>{product.text}</p>
-                <hr></hr>
-                <h1>{product.price} USD</h1>
-                <hr></hr>
-                {product.size === true ? (
-                  <div>
-                    <input type="radio" id="xs" name="size" value="XS"></input>
+              <form>
+                <div className={styles.content}>
+                  <h2>{product.title}</h2>
+                  <p>{product.text}</p>
+                  <hr></hr>
+                  <h1>{product.price} USD</h1>
+                  <hr></hr>
+                  {product.size === true ? (
+                    <div>
+                      <input type="radio" id="xs" name="size" value="XS"></input>
                     XS
-                    <input type="radio" name="size" value="S"></input>S
-                    <input type="radio" name="size" value="M"></input>M
-                    <input type="radio" name="size" value="L"></input>L
-                    <input type="radio" name="size" value="XL"></input>XL
-                  </div>
-                ) : (
-                  <p>ONE SIZE</p>
-                )}
-                <div className={styles.productQuantity}>
-                  <p>
-                    <span
-                      className={styles.quantityButton}
-                      onClick={() =>
-                        this.changeQuantityHandler('decrease')
-                      }
-                    >
+                      <input type="radio" name="size" value="S"></input>S
+                      <input type="radio" name="size" value="M"></input>M
+                      <input type="radio" name="size" value="L"></input>L
+                      <input type="radio" name="size" value="XL"></input>XL
+                    </div>
+                  ) : (
+                    <p>ONE SIZE</p>
+                  )}
+                  <div className={styles.productQuantity}>
+                    <p>
+                      <span
+                        className={styles.quantityButton}
+                        onClick={() =>
+                          this.changeQuantityHandler('decrease')
+                        }
+                      >
                       -
-                    </span>
-                    <span className={styles.quantityBox}>
-                      {quantity}
-                    </span>
-                    <span
-                      className={styles.quantityButton}
-                      onClick={() =>
-                        this.changeQuantityHandler('increase')
-                      }
-                    >
+                      </span>
+                      <span className={styles.quantityBox}>
+                        {quantity}
+                      </span>
+                      <span
+                        className={styles.quantityButton}
+                        onClick={() =>
+                          this.changeQuantityHandler('increase')
+                        }
+                      >
                       +
-                    </span>
-                  </p>
+                      </span>
+                    </p>
+                  </div>
+                  <button type="submit" value="Submit">Add to cart</button>
                 </div>
-
-                <button>Add to cart</button>
-              </div>
+              </form>
             </Grid>
           </Grid>
         </div>

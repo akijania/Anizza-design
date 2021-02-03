@@ -7,12 +7,12 @@ import Badge from '@material-ui/core/Badge';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getCount } from '../../../redux/cartRedux';
 
 import styles from './TopBar.module.scss';
 
-const Component = ({ className, children }) => (
+const Component = ({ className, cartProductsNumber}) => (
   <div className={clsx(className, styles.root)}>
     <Grid container justify="space-between">
       <Grid item xs={4}>
@@ -24,8 +24,8 @@ const Component = ({ className, children }) => (
         </Link>
       </Grid>
       <Grid item xs={1}>
-        <Link to="/" className={styles.icon}>
-          <Badge badgeContent={1} color="secondary" className={styles.badge}>
+        <Link to="/cart" className={styles.icon}>
+          <Badge badgeContent={cartProductsNumber} color="secondary" className={styles.badge}>
             <ShoppingBasketIcon fontSize="large" className={styles.icon} />
           </Badge>
         </Link>
@@ -35,22 +35,17 @@ const Component = ({ className, children }) => (
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
+  cartProductsNumber: PropTypes.number,
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  cartProductsNumber: getCount(state),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(mapStateToProps)(Component);
 
 export {
-  Component as TopBar,
-  // Container as TopBar,
+  Container as TopBar,
   Component as TopBarComponent,
 };

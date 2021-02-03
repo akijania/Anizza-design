@@ -18,68 +18,70 @@ const Component = ({ className, children }) => (
           <h2>PLEASE ENTER THE DELIVERY DETAILS</h2>
         </Grid>
       </Grid>
-      <Grid container className={styles.form}>
-        <Grid item xs={12} sm={6} className={styles.input}>
-          <TextField
-            id="name"
-            label="NAME"
-            fullWidth
-          />
+      <form>
+        <Grid container className={styles.form}>
+          <Grid item xs={12} sm={6} className={styles.input}>
+            <TextField
+              id="name"
+              label="NAME"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} className={styles.input}>
+            <TextField
+              id="surname"
+              label="SURNAME"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={6} className={styles.input}>
+            <TextField
+              id="address"
+              label="ADDRESS"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} className={styles.input}>
+            <TextField
+              id="post"
+              label="POST CODE"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} className={styles.input}>
+            <TextField
+              id="town"
+              label="TOWN"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={6} className={styles.input}>
+            <TextField
+              id="country"
+              label="COUNTRY"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={6} className={styles.input}>
+            <TextField
+              id="email"
+              type="email"
+              label="E-MAIL"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12} md={6} className={styles.input}>
+            <TextField
+              id="phone"
+              label="TELEPHONE"
+              fullWidth
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} className={styles.input}>
-          <TextField
-            id="surname"
-            label="SURNAME"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} md={6} className={styles.input}>
-          <TextField
-            id="address"
-            label="ADDRESS"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} className={styles.input}>
-          <TextField
-            id="post"
-            label="POST CODE"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} className={styles.input}>
-          <TextField
-            id="town"
-            label="TOWN"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} md={6} className={styles.input}>
-          <TextField
-            id="country"
-            label="COUNTRY"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} md={6} className={styles.input}>
-          <TextField
-            id="email"
-            type="email"
-            label="E-MAIL"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} md={6} className={styles.input}>
-          <TextField
-            id="phone"
-            label="TELEPHONE"
-            fullWidth
-          />
-        </Grid>
-      </Grid>
-      <div>
-        <button>Buy now</button>
-      </div>
+        <div className={styles.submit}>
+          <button type="submit">Buy now</button>
+        </div>
+      </form>
     </div>
   </div>
 );

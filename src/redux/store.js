@@ -5,9 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { initialState } from './initialState';
 import { reducer as productsReducer } from './productsRedux';
 import categoriesReducer from './categoriesRedux';
+import cartReducer from './cartRedux';
 
 // define reducers
 const reducers = {
+  cart: cartReducer,
   products: productsReducer,
   categories: categoriesReducer,
 };

@@ -4,7 +4,8 @@ import { TopBarComponent } from './TopBar';
 
 describe('Component TopBar', () => {
   it('should render without crashing', () => {
-    const component = shallow(<TopBarComponent />);
+    const getCount = function(){};
+    const component = shallow(<TopBarComponent getCount={getCount} />);
     expect(component).toBeTruthy();
   });
 });
