@@ -1,4 +1,4 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
 .root {
   text-align: center;
@@ -7,7 +7,7 @@
   max-width: 1200px;
   padding-right: 50px;
   padding-left: 50px;
-  
+
   .logo {
     position: fixed;
     border: solid 10px black;
@@ -15,12 +15,12 @@
     padding-left: 50px;
   }
 
-  .badge{
+  .badge {
     top: 40px;
   }
 
   h1 {
-    font-family: 'Pompiere', cursive;
+    font-family: "Pompiere", cursive;
     font-size: 60px;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -31,7 +31,7 @@
   }
 
   p {
-    font-family: 'Pompiere', cursive;
+    font-family: "Pompiere", cursive;
     font-size: 14px;
     padding-top: 0;
     margin-top: 0;
@@ -41,26 +41,39 @@
     }
   }
 
-
   .icon {
     color: $black;
   }
 }
 
-@media (max-width: 750px) {
-    .root {
-      h1 {
-        font-size: 40px;
-      }
+@media (max-width: 1199px) {
+  .root {
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+
+
+@media (max-width: 992px) {
+  .root {
+    padding-bottom: 120px;
+
+    .logo {
+      position: absolute;
+    }
+    h1 {
+      font-size: 40px;
+    }
   }
 }
 @media (max-width: 530px) {
-    .root {
-        padding-right: 20px;
-        padding-left: 20px;
+  .root {
+    padding-right: 20px;
+    padding-left: 20px;
 
-      h1 {
-        font-size: 26px;
-      }
+    h1 {
+      font-size: 26px;
+    }
   }
 }

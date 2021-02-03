@@ -15,7 +15,7 @@
   .menu {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding-right: 50px;
     text-align: center;
 
     li {
@@ -55,5 +55,16 @@
     width: 300px;
     color: $lightGray;
     z-index: -1;
+  }
+}
+@media (max-width: 992px) {
+  .root {
+
+    .activeCategory {
+      display: none;
+    }
+    .menu{
+      padding:0;
+    }
   }
 }

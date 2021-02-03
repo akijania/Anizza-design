@@ -34,7 +34,7 @@ class Component extends React.Component {
         <div className={styles.container}>
           <div>
             <Grid container justify="flex-end">
-              <Grid item xs={8}>
+              <Grid item xs={12} md={8}>
                 <ul className={styles.menu}>
                   {categories.map((item) => (
                     <li key={item.id}>
@@ -52,20 +52,20 @@ class Component extends React.Component {
           </div>
           <div>
             <Grid container justify="space-between">
-              <Grid item xs={1}>
+              <Grid item md={1}>
                 <div className={styles.activeCategory}> {activeCategory}
                 </div>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12} md={8}>
                 <Grid container spacing={3} className={styles.list}>
                   {activeCategory === 'collection'
                     ? products.map((item) => (
-                      <Grid item xs={12} md={6} key={item._id}>
+                      <Grid item xs={12} sm={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))
                     : categoryProducts.map((item) => (
-                      <Grid item xs={12} md={6} key={item._id}>
+                      <Grid item xs={12} sm={6} key={item._id}>
                         <ProductBox {...item} />
                       </Grid>
                     ))}
