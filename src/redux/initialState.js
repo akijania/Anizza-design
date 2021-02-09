@@ -6,7 +6,9 @@ export const initialState = {
     { id: 'skirts', name: 'Skirts' },
     { id: 'accessories', name: 'Accessories' },
   ],
-  cart: [],
+  cart: {
+    products: [],
+  },
   products: {
     data: [],
     product: {},

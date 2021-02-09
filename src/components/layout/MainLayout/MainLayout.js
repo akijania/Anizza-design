@@ -1,40 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Header} from './../Header/Header';
-import {Footer} from './../Footer/Footer';
+import { Header } from './../Header/Header';
+import { Footer } from './../Footer/Footer';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { fetchLoadCart } from '../../../redux/cartRedux';
 
 import styles from './MainLayout.module.scss';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <Header />
-    {children}
-    <Footer />
-  </div>
-);
+class Component extends React.Component {
+  componentDidMount() {
+    const { fetchLoadCart } = this.props;
+    fetchLoadCart();
+  }
+  render() {
+    const { className, children } = this.props;
+    return (
+      <div className={clsx(className, styles.root)}>
+        <Header />
+        {children}
+        <Footer />
+      </div>
+    );
+  }
+}
 
 Component.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  fetchLoadCart: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  fetchLoadCart: () => dispatch(fetchLoadCart()),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const Container = connect(null, mapDispatchToProps)(Component);
 
 export {
-  Component as MainLayout,
-  // Container as MainLayout,
+  Container as MainLayout,
   Component as MainLayoutComponent,
 };
