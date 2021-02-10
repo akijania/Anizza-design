@@ -68,7 +68,42 @@ export default function reducer(statePart = [], action = {}) {
     case REMOVE_FROM_CART: {
       return {
         ...statePart,
-        products: statePart.products.filter((item) => item.id !== action.payload),
+        products: statePart.products.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+    }
+    case CHANGE_QUANTITY: {
+      const newStatePart = statePart.products.map((product) => {
+        if (product.id === action.payload.id) {
+          if (action.payload.type === 'increase') {
+            return {
+              ...product,
+              quantity: product.quantity + 1,
+            };
+          }
+          if (
+            action.payload.type === 'decrease' &&
+            action.payload.quantity > 1
+          ) {
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            };
+          }
+          if (
+            action.payload.type === 'decrease' &&
+            action.payload.quantity <= 1
+          ) {
+            return {
+              ...product,
+            };
+          }
+        }
+        return product;
+      });
+      return {
+        products: newStatePart,
       };
     }
     default:

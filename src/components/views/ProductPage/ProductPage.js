@@ -60,7 +60,6 @@ class Component extends React.Component {
         title: title,
         size: size,
       };
-      console.log(value);
       fetchAddCart(value);
       this.saveToLocalStore(value);
     }
@@ -84,6 +83,7 @@ class Component extends React.Component {
           if (item.id === product.id) {
             item.quantity = product.quantity + item.quantity;
           }
+          return cartProducts;
         });
         localStorage.setItem('cart', JSON.stringify(cartProducts));
       } else {

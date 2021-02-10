@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../../redux/cartRedux';
+import { removeFromCart, changeQuantity } from '../../../redux/cartRedux';
 
 import styles from './CartProduct.module.scss';
 
@@ -19,6 +19,7 @@ const Component = ({
   title,
   size,
   removeFromCart,
+  changeQuantity,
 }) => {
   const handleDeleteProduct = () => {
     removeFromCart(id);
@@ -27,7 +28,19 @@ const Component = ({
       (item) => item.id !== id
     );
     cartProducts.products = filteredProducts;
-    console.log('fp', cartProducts);
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
+  };
+  const handleQuantity = (type) => {
+    changeQuantity({ id, quantity, type });
+    let cartProducts = JSON.parse(localStorage.getItem('cart'));
+    cartProducts.products.map((item) => {
+      if (item.id === id && type === 'increase') {
+        item.quantity++;
+      }
+      if (item.id === id && type === 'decrease' && item.quantity > 1) {
+        item.quantity--;
+      } return cartProducts;
+    });
     localStorage.setItem('cart', JSON.stringify(cartProducts));
   };
   return (
@@ -48,14 +61,14 @@ const Component = ({
             <p>
               <span
                 className={styles.quantityButton}
-                onClick={() => this.changeQuantityHandler('decrease')}
+                onClick={() => handleQuantity('decrease')}
               >
                 -
               </span>
               <span className={styles.quantityBox}>{quantity}</span>
               <span
                 className={styles.quantityButton}
-                onClick={() => this.changeQuantityHandler('increase')}
+                onClick={() => handleQuantity('increase')}
               >
                 +
               </span>
@@ -85,10 +98,12 @@ Component.propTypes = {
   size: PropTypes.string,
   className: PropTypes.string,
   removeFromCart: PropTypes.func,
+  changeQuantity: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (id) => dispatch(removeFromCart(id)),
+  changeQuantity: (value) => dispatch(changeQuantity(value)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);
