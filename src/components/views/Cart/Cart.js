@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import randomID from '@akijania/randomid-generator';
 import clsx from 'clsx';
 import { CartProduct } from '../../features/CartProduct/CartProduct';
 import { Link } from 'react-router-dom';
@@ -38,15 +37,15 @@ class Component extends React.Component {
               </div>
             ))}
             <div className={styles.summary}>
-              <h2>
-                Total price:
+              <h3>
+                Total price: 
                 {products
                   .map((item) => item.price * item.quantity)
                   .reduce(function (a, b) {
                     return a + b;
                   })}
                 $
-              </h2>
+              </h3>
               <Link to="/cart/delivery">
                 <button>Continue</button>
               </Link>

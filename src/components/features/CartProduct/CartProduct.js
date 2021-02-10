@@ -5,56 +5,92 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { removeFromCart } from '../../../redux/cartRedux';
 
 import styles from './CartProduct.module.scss';
 
-const Component = ({ className, photo, price, quantity, title, size }) => (
-  <div className={clsx(className, styles.root)}>
-    <Grid container justify="flex-end" alignItems='center'>
-      <Grid item xs={4} md={2}>
-        <div className={styles.image}>
-          <img src={photo} alt={title}></img>
-        </div>
+const Component = ({
+  className,
+  id,
+  photo,
+  price,
+  quantity,
+  title,
+  size,
+  removeFromCart,
+}) => {
+  const handleDeleteProduct = () => {
+    removeFromCart(id);
+    let cartProducts = JSON.parse(localStorage.getItem('cart'));
+    const filteredProducts = cartProducts.products.filter(
+      (item) => item.id !== id
+    );
+    cartProducts.products = filteredProducts;
+    console.log('fp', cartProducts);
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
+  };
+  return (
+    <div className={clsx(className, styles.root)}>
+      <Grid container justify="flex-end" alignItems="center">
+        <Grid item xs={4} md={2}>
+          <div className={styles.image}>
+            <img src={photo} alt={title}></img>
+          </div>
+        </Grid>
+        <Grid item xs={4} md={3} className={styles.content}>
+          <h2>{title}</h2>
+          <p>size: {size}</p>
+          <p>price: {price}$</p>
+        </Grid>
+        <Grid item xs={2} md={1} className={styles.content}>
+          <div className={styles.productQuantity}>
+            <p>
+              <span
+                className={styles.quantityButton}
+                onClick={() => this.changeQuantityHandler('decrease')}
+              >
+                -
+              </span>
+              <span className={styles.quantityBox}>{quantity}</span>
+              <span
+                className={styles.quantityButton}
+                onClick={() => this.changeQuantityHandler('increase')}
+              >
+                +
+              </span>
+            </p>
+          </div>
+        </Grid>
+        <Grid item xs={1} md={1} className={styles.content}>
+          {price * quantity}$
+        </Grid>
+        <Grid item xs={1} md={1} className={styles.content}>
+          <DeleteIcon
+            className={styles.deleteButton}
+            onClick={() => handleDeleteProduct()}
+          />
+        </Grid>
       </Grid>
-      <Grid item xs={5} md={3} className={styles.content}>
-        <h2>{title}</h2>
-        <p>size: {size}</p>
-        <p>
-          price: {price}$
-        </p>
-      </Grid>
-      <Grid item xs={1} md={1} className={styles.content}>{quantity}</Grid>
-      <Grid item xs={1} md={1} className={styles.content}>{price * quantity}$</Grid>
-      <Grid item xs={1} md={1} className={styles.content}>
-        <DeleteIcon />
-      </Grid>
-    </Grid>
-  </div>
-);
+    </div>
+  );
+};
 
 Component.propTypes = {
+  id: PropTypes.string,
   photo: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
   title: PropTypes.string,
   size: PropTypes.string,
   className: PropTypes.string,
+  removeFromCart: PropTypes.func,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  removeFromCart: (id) => dispatch(removeFromCart(id)),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const Container = connect(null, mapDispatchToProps)(Component);
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
-export {
-  Component as CartProduct,
-  // Container as CartProduct,
-  Component as CartProductComponent,
-};
+export { Container as CartProduct, Component as CartProductComponent };

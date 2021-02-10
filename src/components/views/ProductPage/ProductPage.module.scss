@@ -35,6 +35,10 @@
             color: $white;
             outline: inherit;
             cursor: pointer;
+            &:hover {
+              width: 102%;
+              height: 102%;
+            }
         }
     }
 

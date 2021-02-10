@@ -195,7 +195,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, props) => ({
   fetchProduct: () => dispatch(fetchProduct(props.match.params.id)),
   fetchAddCart: (value) => dispatch(fetchAddCart(value)),
-  // saveToLocalStore: () => dispatch(saveToLocalStore()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);

@@ -25,6 +25,7 @@ export const changeQuantity = (payload) => ({ payload, type: CHANGE_QUANTITY });
 
 export const fetchLoadCart = () => (dispatch, getState) => {
   try {
+    // localStorage.clear();
     const cartProducts = JSON.parse(localStorage.getItem(`cart`)).products;
     if (cartProducts !== null) dispatch(loadCart(cartProducts));
     // localStorage.clear();
@@ -32,24 +33,6 @@ export const fetchLoadCart = () => (dispatch, getState) => {
     console.log(err);
   }
 };
-
-// export const saveState = (state) => {
-//   try {
-//     const serializedState = JSON.stringify(state);
-//     localStorage.setItem('cart', serializedState);
-//   } catch {
-//     // ignore write errors
-//   }
-// };
-
-// export const fetchAddCart = () => (dispatch, getState) => {
-//   try {
-//     const cartProducts = JSON.parse(localStorage.getItem(`cart`)).products;
-//     if (cartProducts !== null) dispatch(loadCart(cartProducts));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
@@ -80,6 +63,12 @@ export default function reducer(statePart = [], action = {}) {
       return {
         ...statePart,
         products: [...statePart.products, action.payload],
+      };
+    }
+    case REMOVE_FROM_CART: {
+      return {
+        ...statePart,
+        products: statePart.products.filter((item) => item.id !== action.payload),
       };
     }
     default:
