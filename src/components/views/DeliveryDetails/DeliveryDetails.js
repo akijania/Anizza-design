@@ -10,7 +10,7 @@ import clsx from 'clsx';
 
 import styles from './DeliveryDetails.module.scss';
 
-const Component = ({ className, children }) => (
+const Component = ({ className }) => (
   <div className={clsx(className, styles.root)}>
     <div className={styles.container}>
       <Grid container justify="flex-end">
@@ -25,6 +25,7 @@ const Component = ({ className, children }) => (
               id="name"
               label="NAME"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} className={styles.input}>
@@ -32,6 +33,7 @@ const Component = ({ className, children }) => (
               id="surname"
               label="SURNAME"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} md={6} className={styles.input}>
@@ -39,6 +41,7 @@ const Component = ({ className, children }) => (
               id="address"
               label="ADDRESS"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} className={styles.input}>
@@ -46,6 +49,7 @@ const Component = ({ className, children }) => (
               id="post"
               label="POST CODE"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} sm={6} className={styles.input}>
@@ -60,6 +64,7 @@ const Component = ({ className, children }) => (
               id="country"
               label="COUNTRY"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} md={6} className={styles.input}>
@@ -68,6 +73,7 @@ const Component = ({ className, children }) => (
               type="email"
               label="E-MAIL"
               fullWidth
+              required
             />
           </Grid>
           <Grid item xs={12} md={6} className={styles.input}>
@@ -75,6 +81,7 @@ const Component = ({ className, children }) => (
               id="phone"
               label="TELEPHONE"
               fullWidth
+              required
             />
           </Grid>
         </Grid>
