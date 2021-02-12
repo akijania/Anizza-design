@@ -6,10 +6,12 @@ import { initialState } from './initialState';
 import { reducer as productsReducer } from './productsRedux';
 import categoriesReducer from './categoriesRedux';
 import cartReducer from './cartRedux';
+import { reducer as orderReducer } from './orderRedux';
 
 
 // define reducers
 const reducers = {
+  orders: orderReducer,
   cart: cartReducer,
   products: productsReducer,
   categories: categoriesReducer,

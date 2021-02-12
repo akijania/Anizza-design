@@ -1,6 +1,15 @@
 /* selectors */
 export const getAllCartProducts = ({ cart }) => cart.products;
 export const getCount = ({ cart }) => cart.products.length;
+export const getProductsToOrder = ({ cart }) => cart.products.map(product => {
+  const container = {};
+
+  container.id = product.id;
+  container.quantity = product.quantity;
+  container.title = product.title;
+  container.price = product.price;
+
+  return container;});
 
 /* action name creator */
 const reducerName = 'cart';

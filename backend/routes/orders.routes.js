@@ -59,6 +59,7 @@ router.post('/orders', async (req, res) => {
   } catch (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json({ message: err.message });
+      console.log(err.message);
     } else {
       res.status(500).json({ message: err.message });
     }

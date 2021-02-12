@@ -17,4 +17,12 @@ export const initialState = {
       error: false,
     },
   },
+  orders: {
+    data: [],
+    requests: [],
+    loading: {
+      active: false,
+      error: false,
+    },
+  },
 };
