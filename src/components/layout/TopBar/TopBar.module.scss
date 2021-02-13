@@ -10,9 +10,9 @@
 
   .logo {
     position: fixed;
-    border: solid 10px black;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 55px;
+    padding-left: 55px;
+    background-color: $text-color;
   }
 
   .badge {
@@ -20,24 +20,29 @@
   }
 
   h1 {
-    font-family: "Pompiere", cursive;
-    font-size: 60px;
+    font-family: 'EB Garamond', serif;
+    font-size: 48px;
+    font-weight: 100;
+    padding-top: 0;
+    line-height: 1;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: $text-color;
+    color: $white;
     &:hover {
-      text-shadow: 2px 2px $lightGray;
+      text-shadow: 2px 2px $mediumGrayColor;
     }
   }
 
   p {
-    font-family: "Pompiere", cursive;
+    font-family: 'EB Garamond', serif;
+    font-weight: 100;
     font-size: 14px;
+    padding-bottom: 20px;
     padding-top: 0;
     margin-top: 0;
-    color: $text-color;
+    color: $white;
     &:hover {
-      text-shadow: 2px 2px $lightGray;
+      text-shadow: 2px 2px $mediumGrayColor;
     }
   }
 

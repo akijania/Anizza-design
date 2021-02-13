@@ -33,38 +33,21 @@
       }
 
       .active {
-        font-weight: 800;
-        font-size: 20px;
+        font-weight: 600;
+        font-size: 18px;
       }
     }
   }
 
   .list {
     margin: 30px 0 50px 0;
-    border: solid 10px black;
-  }
-
-  .activeCategory {
-    position: relative;
-    font-size: 100px;
-    text-shadow: -200px 100px $mediumGrayColor;
-    text-transform: uppercase;
-    transform: rotate(-90deg);
-    font-family: 'Pompiere', cursive;
-    top: 340px;
-    width: 300px;
-    color: $lightGray;
-    z-index: -1;
   }
 }
+
 @media (max-width: 992px) {
   .root {
-
-    .activeCategory {
-      display: none;
-    }
-    .menu{
-      padding:0;
+    .menu {
+      padding: 0;
     }
   }
 }

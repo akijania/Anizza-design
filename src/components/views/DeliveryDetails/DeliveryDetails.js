@@ -155,7 +155,6 @@ class Component extends React.Component {
 }
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
   products: PropTypes.array,
   addOrderRequest: PropTypes.func,
@@ -172,7 +171,6 @@ const mapDispatchToProps = (dispatch) => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  // Component as DeliveryDetails,
   Container as DeliveryDetails,
   Component as DeliveryDetailsComponent,
 };

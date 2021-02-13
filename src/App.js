@@ -14,6 +14,7 @@ import { ProductPage } from './components/views/ProductPage/ProductPage';
 import { NotFound } from './components/views/NotFound/NotFound';
 import { Cart } from './components/views/Cart/Cart';
 import { DeliveryDetails } from './components/views/DeliveryDetails/DeliveryDetails';
+import { Summary } from './components/views/Summary/Summary';
 
 const theme = createMuiTheme({
   palette: {
@@ -32,6 +33,7 @@ const App = () => (
               <Route exact path='/' component={Homepage} />
               <Route exact path='/product/:id' component={ProductPage} />
               <Route exact path='/cart' component={Cart} />
+              <Route exact path='/cart/summary' component={Summary} />
               <Route exact path='/cart/delivery' component={DeliveryDetails} />
               <Route path='*' component={NotFound} />
             </Switch>

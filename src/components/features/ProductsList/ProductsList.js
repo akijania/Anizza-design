@@ -51,11 +51,7 @@ class Component extends React.Component {
             </Grid>
           </div>
           <div>
-            <Grid container justify="space-between">
-              <Grid item md={1}>
-                <div className={styles.activeCategory}> {activeCategory}
-                </div>
-              </Grid>
+            <Grid container justify="flex-end">
               <Grid item xs={12} md={8}>
                 <Grid container spacing={3} className={styles.list}>
                   {activeCategory === 'collection'
