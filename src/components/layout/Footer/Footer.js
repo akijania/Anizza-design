@@ -8,12 +8,9 @@ import PinterestIcon from '@material-ui/icons/Pinterest';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './Footer.module.scss';
 
-const Component = ({className, children}) => (
+const Component = ({ className}) => (
   <div className={clsx(className, styles.root)}>
     <footer className={styles.root}>
       <div className={styles.footerMenu}>
@@ -24,16 +21,16 @@ const Component = ({className, children}) => (
                 <h6>Information</h6>
                 <ul>
                   <li>
-                    <a href='/#'>About us</a>
+                    <a href="/#">About us</a>
                   </li>
                   <li>
-                    <a href='/#'>Policy</a>
+                    <a href="/#">Policy</a>
                   </li>
                   <li>
-                    <a href='/#'>Conditions</a>
+                    <a href="/#">Conditions</a>
                   </li>
                   <li>
-                    <a href='/#'>Online support</a>
+                    <a href="/#">Online support</a>
                   </li>
                 </ul>
               </div>
@@ -43,16 +40,16 @@ const Component = ({className, children}) => (
                 <h6>Information</h6>
                 <ul>
                   <li>
-                    <a href='/#'>Specials</a>
+                    <a href="/#">Specials</a>
                   </li>
                   <li>
-                    <a href='/#'>New products</a>
+                    <a href="/#">New products</a>
                   </li>
                   <li>
-                    <a href='/#'>Best Sellers</a>
+                    <a href="/#">Best Sellers</a>
                   </li>
                   <li>
-                    <a href='/#'>Out Stores</a>
+                    <a href="/#">Out Stores</a>
                   </li>
                 </ul>
               </div>
@@ -62,16 +59,16 @@ const Component = ({className, children}) => (
                 <h6>Orders</h6>
                 <ul>
                   <li>
-                    <a href='/#'>Payment options</a>
+                    <a href="/#">Payment options</a>
                   </li>
                   <li>
-                    <a href='/#'>Shipping and delivery</a>
+                    <a href="/#">Shipping and delivery</a>
                   </li>
                   <li>
-                    <a href='/#'>Returns</a>
+                    <a href="/#">Returns</a>
                   </li>
                   <li>
-                    <a href='/#'>Shipping</a>
+                    <a href="/#">Shipping</a>
                   </li>
                 </ul>
               </div>
@@ -80,41 +77,37 @@ const Component = ({className, children}) => (
               <h6>Be with us on:</h6>
               <ul>
                 <li>
-                  <a href='/#'>
+                  <a href="/#">
                     <InstagramIcon>Twitter</InstagramIcon>
                   </a>
                 </li>
                 <li>
-                  <a href='/#'>
+                  <a href="/#">
                     <FacebookIcon>Facebook</FacebookIcon>
                   </a>
                 </li>
                 <li>
-                  <a href='/#'>
+                  <a href="/#">
                     <YouTubeIcon>YouTube</YouTubeIcon>
                   </a>
                 </li>
                 <li>
-                  <a href='/#'>
+                  <a href="/#">
                     <PinterestIcon>Pinterest</PinterestIcon>
                   </a>
                 </li>
               </ul>
             </Grid>
-    
           </Grid>
         </div>
       </div>
       <div className={styles.bottomBar}>
         <div className={styles.container}>
           <Grid container spacing={3}>
-
-            <Grid item xs={12}  className={styles.copyright}>
+            <Grid item xs={12} className={styles.copyright}>
               <p>©Copyright 2021 Anizza design | All Rights Reserved</p>
             </Grid>
-           
           </Grid>
-         
         </div>
       </div>
     </footer>
@@ -126,18 +119,4 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
-export {
-  Component as Footer,
-  // Container as Footer,
-  Component as FooterComponent,
-};
+export { Component as Footer, Component as FooterComponent };

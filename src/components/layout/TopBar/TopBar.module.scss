@@ -28,6 +28,7 @@
     padding-bottom: 0;
     margin-bottom: 0;
     color: $white;
+
     &:hover {
       text-shadow: 2px 2px $mediumGrayColor;
     }
@@ -41,6 +42,7 @@
     padding-top: 0;
     margin-top: 0;
     color: $white;
+
     &:hover {
       text-shadow: 2px 2px $mediumGrayColor;
     }
@@ -67,11 +69,13 @@
     .logo {
       position: absolute;
     }
+
     h1 {
       font-size: 40px;
     }
   }
 }
+
 @media (max-width: 530px) {
   .root {
     padding-right: 20px;

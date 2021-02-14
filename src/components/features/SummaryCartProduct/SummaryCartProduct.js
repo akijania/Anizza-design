@@ -4,12 +4,17 @@ import Grid from '@material-ui/core/Grid';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
-
 import styles from './SummaryCartProduct.module.scss';
 
-const Component = ({ className, id, photo, price, quantity, title, size, text }) => (
+const Component = ({
+  className,
+  photo,
+  price,
+  quantity,
+  title,
+  size,
+  text,
+}) => (
   <div className={clsx(className, styles.root)}>
     <Grid container justify="flex-end" alignItems="center">
       <Grid item xs={4} md={2}>
@@ -45,18 +50,7 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
-
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
-
 export {
   Component as SummaryCartProduct,
-  // Container as SummaryCartProduct,
   Component as SummaryCartProductComponent,
 };

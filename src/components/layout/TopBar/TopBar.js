@@ -12,11 +12,11 @@ import { getCount } from '../../../redux/cartRedux';
 
 import styles from './TopBar.module.scss';
 
-const Component = ({ className, cartProductsNumber}) => (
+const Component = ({ className, cartProductsNumber }) => (
   <div className={clsx(className, styles.root)}>
     <Grid container justify="space-between">
       <Grid item xs={4}>
-        <Link to='/'>
+        <Link to="/">
           <div className={styles.logo}>
             <h1>Anizza design</h1>
             <p>HOMEMADE CLOTHES</p>
@@ -25,7 +25,11 @@ const Component = ({ className, cartProductsNumber}) => (
       </Grid>
       <Grid item xs={1}>
         <Link to="/cart" className={styles.icon}>
-          <Badge badgeContent={cartProductsNumber} color="secondary" className={styles.badge}>
+          <Badge
+            badgeContent={cartProductsNumber}
+            color="secondary"
+            className={styles.badge}
+          >
             <ShoppingBasketIcon fontSize="large" className={styles.icon} />
           </Badge>
         </Link>
@@ -39,13 +43,10 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   cartProductsNumber: getCount(state),
 });
 
 const Container = connect(mapStateToProps)(Component);
 
-export {
-  Container as TopBar,
-  Component as TopBarComponent,
-};
+export { Container as TopBar, Component as TopBarComponent };

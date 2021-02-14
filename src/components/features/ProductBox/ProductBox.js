@@ -34,7 +34,4 @@ Component.propTypes = {
   className: PropTypes.string,
 };
 
-export {
-  Component as ProductBox,
-  Component as ProductBoxComponent,
-};
+export { Component as ProductBox, Component as ProductBoxComponent };

@@ -1,10 +1,14 @@
 @import "settings.scss";
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto&display=swap');
 
-$font-logo: 'EB Garamond', serif;
-$font-text: 'Roboto', sans-serif;
+$font-logo: 'EB Garamond',
+serif;
+$font-text: 'Roboto',
+sans-serif;
 
 body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
-  }
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  position: relative;
+  left: 0;
+}

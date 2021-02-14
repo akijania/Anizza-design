@@ -6,7 +6,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { removeFromCart, changeQuantity, addText } from '../../../redux/cartRedux';
+import {
+  removeFromCart,
+  changeQuantity,
+  addText,
+} from '../../../redux/cartRedux';
 
 import styles from './CartProduct.module.scss';
 
@@ -49,14 +53,13 @@ const Component = ({
     addText({ id, text });
     let cartProducts = JSON.parse(localStorage.getItem('cart'));
     cartProducts.products.map((item) => {
-      if (item.id === id ) {
+      if (item.id === id) {
         item.text = text;
       }
       return cartProducts;
     });
     localStorage.setItem('cart', JSON.stringify(cartProducts));
   };
-
 
   return (
     <div className={clsx(className, styles.root)}>
@@ -70,8 +73,14 @@ const Component = ({
           <h2>{title}</h2>
           <p>size: {size}</p>
           <p>price: {price}$</p>
-          <textarea id={id} name="text" rows="3" cols="20" onChange={event => handleText(event.currentTarget.value)} placeholder='any wishes? write it down!'>
-          </textarea>
+          <textarea
+            id={id}
+            name="text"
+            rows="3"
+            cols="20"
+            onChange={(event) => handleText(event.currentTarget.value)}
+            placeholder="any wishes? write it down!"
+          ></textarea>
         </Grid>
         <Grid item xs={2} md={1} className={styles.content}>
           <div className={styles.productQuantity}>

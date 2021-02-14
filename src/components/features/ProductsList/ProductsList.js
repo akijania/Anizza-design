@@ -5,7 +5,10 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { getAll } from '../../../redux/categoriesRedux.js';
-import { getAllProducts, fetchPublishedProducts } from '../../../redux/productsRedux';
+import {
+  getAllProducts,
+  fetchPublishedProducts,
+} from '../../../redux/productsRedux';
 import Grid from '@material-ui/core/Grid';
 import { ProductBox } from '../ProductBox/ProductBox';
 
@@ -39,7 +42,9 @@ class Component extends React.Component {
                   {categories.map((item) => (
                     <li key={item.id}>
                       <button
-                        className={item.id === activeCategory ? styles.active : ''}
+                        className={
+                          item.id === activeCategory ? styles.active : ''
+                        }
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -93,14 +98,10 @@ const mapStateToProps = (state) => ({
   products: getAllProducts(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchPublishedProducts: () => dispatch(fetchPublishedProducts()),
 });
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  // Component as ProductsList,
-  Container as ProductsList,
-  Component as ProductsListComponent,
-};
+export { Container as ProductsList, Component as ProductsListComponent };

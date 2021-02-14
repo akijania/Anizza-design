@@ -25,6 +25,7 @@ const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 const TOGGLE_CART = createActionName('TOGGLE_CART');
 const CHANGE_QUANTITY = createActionName('CHANGE_QUANTITY');
 const ADD_TEXT = createActionName('ADD_TEXT');
+const CLOSE_CART = createActionName('CLOSE_CART');
 
 /* action creators */
 export const fetchAddCart = (payload) => ({ payload, type: ADD_TO_CART });
@@ -36,6 +37,7 @@ export const removeFromCart = (payload) => ({
 export const toggleCart = (payload) => ({ payload, type: TOGGLE_CART });
 export const changeQuantity = (payload) => ({ payload, type: CHANGE_QUANTITY });
 export const addText = (payload) => ({ payload, type: ADD_TEXT });
+export const closeCart = (payload) => ({ payload, type: CLOSE_CART });
 
 export const fetchLoadCart = () => (dispatch, getState) => {
   try {
@@ -54,6 +56,11 @@ export default function reducer(statePart = [], action = {}) {
         ...statePart,
         products: action.payload,
       };
+    case CLOSE_CART:
+      return {
+        ...statePart,
+        miniCartOpen: false,
+      };
     case ADD_TO_CART: {
       const isInCart = statePart.products.find(
         (item) => item.id === action.payload.id
@@ -61,6 +68,7 @@ export default function reducer(statePart = [], action = {}) {
       if (isInCart) {
         return {
           ...statePart,
+          miniCartOpen: true,
           products: statePart.products.map((product) => {
             if (product.id === action.payload.id) {
               return {
@@ -74,6 +82,7 @@ export default function reducer(statePart = [], action = {}) {
       }
       return {
         ...statePart,
+        miniCartOpen: true,
         products: [...statePart.products, action.payload],
       };
     }

@@ -34,13 +34,17 @@ class Component extends React.Component {
   };
   submitForm = (e) => {
     const { deliveryDetails } = this.state;
-    const { products,  addOrderRequest } = this.props;
+    const { products, addOrderRequest } = this.props;
     deliveryDetails.date = new Date().toISOString();
     deliveryDetails.products = products;
-    deliveryDetails.totalPrice = products.map((item) => item.price * item.quantity).reduce(function (a, b) {return a + b;});
+    deliveryDetails.totalPrice = products
+      .map((item) => item.price * item.quantity)
+      .reduce(function (a, b) {
+        return a + b;
+      });
     e.preventDefault();
     addOrderRequest(deliveryDetails);
-  }
+  };
   render() {
     const { updateTextField, submitForm } = this;
     const { className } = this.props;
@@ -170,7 +174,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  Container as DeliveryDetails,
-  Component as DeliveryDetailsComponent,
-};
+export { Container as DeliveryDetails, Component as DeliveryDetailsComponent };

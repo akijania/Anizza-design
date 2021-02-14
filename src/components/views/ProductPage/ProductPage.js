@@ -63,7 +63,6 @@ class Component extends React.Component {
       };
       fetchAddCart(value);
       this.saveToLocalStore(value);
-      document.body.classList.add('slide');
     }
   };
   saveToLocalStore = (product) => {

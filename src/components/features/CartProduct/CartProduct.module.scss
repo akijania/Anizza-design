@@ -1,7 +1,6 @@
-@import '../../../styles/settings.scss';
+@import "../../../styles/settings.scss";
 
 .root {
-
   margin: 10px;
 
   .image {
@@ -18,13 +17,16 @@
 
   .content {
     text-align: left;
+
     h2 {
-      margin:0;
+      margin: 0;
     }
-    p{
+
+    p {
       margin: 0;
     }
   }
+
   textarea {
     padding: 5px 10px;
     font-size: 14px;
@@ -39,7 +41,7 @@
     font-weight: 300;
     white-space: nowrap;
   }
-  
+
   .quantityBox {
     border: 1px solid $black;
     padding: 5px 12px;
@@ -51,15 +53,17 @@
   .quantityButton {
     cursor: pointer;
     user-select: none;
-  
+
     &:hover {
       color: $black;
     }
   }
-  .deleteButton{
+
+  .deleteButton {
     cursor: pointer;
+
     &:hover {
-      color:$main-color;
+      color: $main-color;
     }
   }
 }

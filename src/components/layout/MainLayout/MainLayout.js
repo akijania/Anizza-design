@@ -7,6 +7,7 @@ import clsx from 'clsx';
 
 import { connect } from 'react-redux';
 import { fetchLoadCart } from '../../../redux/cartRedux';
+import { MiniCart } from '../../features/MiniCart/MiniCart';
 
 import styles from './MainLayout.module.scss';
 
@@ -20,6 +21,7 @@ class Component extends React.Component {
     return (
       <div className={clsx(className, styles.root)}>
         <Header />
+        <MiniCart />
         {children}
         <Footer />
       </div>
@@ -39,7 +41,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 const Container = connect(null, mapDispatchToProps)(Component);
 
-export {
-  Container as MainLayout,
-  Component as MainLayoutComponent,
-};
+export { Container as MainLayout, Component as MainLayoutComponent };

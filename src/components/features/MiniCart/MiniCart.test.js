@@ -4,7 +4,8 @@ import { MiniCartComponent } from './MiniCart';
 
 describe('Component MiniCart', () => {
   it('should render without crashing', () => {
-    const component = shallow(<MiniCartComponent />);
+    const products = [];
+    const component = shallow(<MiniCartComponent products={products}/>);
     expect(component).toBeTruthy();
   });
 });

@@ -10,7 +10,6 @@ import { getAllCartProducts } from '../../../redux/cartRedux';
 import styles from './Cart.module.scss';
 
 class Component extends React.Component {
-
   render() {
     const { className, products } = this.props;
     if (products.length === 0)
@@ -30,7 +29,7 @@ class Component extends React.Component {
             ))}
             <div className={styles.summary}>
               <h3>
-                Total price: 
+                Total price:
                 {products
                   .map((item) => item.price * item.quantity)
                   .reduce(function (a, b) {
@@ -59,7 +58,4 @@ const mapStateToProps = (state) => ({
 
 const Container = connect(mapStateToProps)(Component);
 
-export {
-  Container as Cart,
-  Component as CartComponent,
-};
+export { Container as Cart, Component as CartComponent };

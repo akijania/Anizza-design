@@ -8,6 +8,7 @@ export const initialState = {
   ],
   cart: {
     products: [],
+    miniCartOpen: false,
   },
   products: {
     data: [],
