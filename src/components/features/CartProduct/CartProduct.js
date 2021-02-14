@@ -6,7 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { removeFromCart, changeQuantity } from '../../../redux/cartRedux';
+import { removeFromCart, changeQuantity, addText } from '../../../redux/cartRedux';
 
 import styles from './CartProduct.module.scss';
 
@@ -20,6 +20,7 @@ const Component = ({
   size,
   removeFromCart,
   changeQuantity,
+  addText,
 }) => {
   const handleDeleteProduct = () => {
     removeFromCart(id);
@@ -39,10 +40,24 @@ const Component = ({
       }
       if (item.id === id && type === 'decrease' && item.quantity > 1) {
         item.quantity--;
-      } return cartProducts;
+      }
+      return cartProducts;
     });
     localStorage.setItem('cart', JSON.stringify(cartProducts));
   };
+  const handleText = (text) => {
+    addText({ id, text });
+    let cartProducts = JSON.parse(localStorage.getItem('cart'));
+    cartProducts.products.map((item) => {
+      if (item.id === id ) {
+        item.text = text;
+      }
+      return cartProducts;
+    });
+    localStorage.setItem('cart', JSON.stringify(cartProducts));
+  };
+
+
   return (
     <div className={clsx(className, styles.root)}>
       <Grid container justify="flex-end" alignItems="center">
@@ -55,6 +70,8 @@ const Component = ({
           <h2>{title}</h2>
           <p>size: {size}</p>
           <p>price: {price}$</p>
+          <textarea id={id} name="text" rows="3" cols="20" onChange={event => handleText(event.currentTarget.value)} placeholder='any wishes? write it down!'>
+          </textarea>
         </Grid>
         <Grid item xs={2} md={1} className={styles.content}>
           <div className={styles.productQuantity}>
@@ -99,11 +116,13 @@ Component.propTypes = {
   className: PropTypes.string,
   removeFromCart: PropTypes.func,
   changeQuantity: PropTypes.func,
+  addText: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   removeFromCart: (id) => dispatch(removeFromCart(id)),
   changeQuantity: (value) => dispatch(changeQuantity(value)),
+  addText: (value) => dispatch(addText(value)),
 });
 
 const Container = connect(null, mapDispatchToProps)(Component);

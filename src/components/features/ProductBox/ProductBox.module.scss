@@ -6,6 +6,19 @@
     width: 100%;
     height: 500px;
 
+    .photoHover {
+      display: none;
+    }
+
+    &:hover {
+      .photoHover {
+        display: block;
+      }
+      .mainPhoto {
+        display: none;
+      }
+    }
+
     img {
       width: 100%;
       height: 100%;

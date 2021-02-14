@@ -18,6 +18,20 @@
 
   .content {
     text-align: left;
+    h2 {
+      margin:0;
+    }
+    p{
+      margin: 0;
+    }
+  }
+  textarea {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-family: Roboto;
+    border: 1px solid $text-color;
+    outline: none;
+    resize: none;
   }
 
   .productQuantity {

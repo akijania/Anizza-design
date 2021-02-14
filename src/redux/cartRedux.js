@@ -1,15 +1,18 @@
 /* selectors */
 export const getAllCartProducts = ({ cart }) => cart.products;
 export const getCount = ({ cart }) => cart.products.length;
-export const getProductsToOrder = ({ cart }) => cart.products.map(product => {
-  const container = {};
+export const getProductsToOrder = ({ cart }) =>
+  cart.products.map((product) => {
+    const container = {};
 
-  container.id = product.id;
-  container.quantity = product.quantity;
-  container.title = product.title;
-  container.price = product.price;
+    container.id = product.id;
+    container.quantity = product.quantity;
+    container.title = product.title;
+    container.price = product.price;
+    container.text = product.text;
 
-  return container;});
+    return container;
+  });
 
 /* action name creator */
 const reducerName = 'cart';
@@ -21,6 +24,7 @@ const LOAD_CART = createActionName('LOAD_CART');
 const REMOVE_FROM_CART = createActionName('REMOVE_FROM_CART');
 const TOGGLE_CART = createActionName('TOGGLE_CART');
 const CHANGE_QUANTITY = createActionName('CHANGE_QUANTITY');
+const ADD_TEXT = createActionName('ADD_TEXT');
 
 /* action creators */
 export const fetchAddCart = (payload) => ({ payload, type: ADD_TO_CART });
@@ -31,13 +35,12 @@ export const removeFromCart = (payload) => ({
 });
 export const toggleCart = (payload) => ({ payload, type: TOGGLE_CART });
 export const changeQuantity = (payload) => ({ payload, type: CHANGE_QUANTITY });
+export const addText = (payload) => ({ payload, type: ADD_TEXT });
 
 export const fetchLoadCart = () => (dispatch, getState) => {
   try {
-    // localStorage.clear();
     const cartProducts = JSON.parse(localStorage.getItem(`cart`)).products;
     if (cartProducts !== null) dispatch(loadCart(cartProducts));
-    // localStorage.clear();
   } catch (err) {
     console.log(err);
   }
@@ -80,6 +83,22 @@ export default function reducer(statePart = [], action = {}) {
         products: statePart.products.filter(
           (item) => item.id !== action.payload
         ),
+      };
+    }
+    case ADD_TEXT: {
+      return {
+        ...statePart,
+        products: statePart.products.map((product) => {
+          if (product.id === action.payload.id) {
+            return {
+              ...product,
+              text: action.payload.text,
+            };
+          }
+          return {
+            ...product,
+          };
+        }),
       };
     }
     case CHANGE_QUANTITY: {

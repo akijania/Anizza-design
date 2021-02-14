@@ -7,7 +7,7 @@ router.get('/products', async (req, res) => {
   try {
     const result = await Product
       .find()
-      .select('_id title photo price category');
+      .select('_id title photo price category photo2');
     if(!result) res.status(404).json({ product: 'Not found' });
     else res.json(result);
   }

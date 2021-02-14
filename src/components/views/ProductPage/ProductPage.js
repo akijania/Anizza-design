@@ -11,6 +11,7 @@ import Grid from '@material-ui/core/Grid';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import styles from './ProductPage.module.scss';
 
@@ -62,8 +63,8 @@ class Component extends React.Component {
       };
       fetchAddCart(value);
       this.saveToLocalStore(value);
+      document.body.classList.add('slide');
     }
-    // document.body.classList.add('slide');
   };
   saveToLocalStore = (product) => {
     let cartProducts = JSON.parse(localStorage.getItem('cart'));
@@ -101,6 +102,16 @@ class Component extends React.Component {
           <Grid container justify="flex-end">
             <Grid item xs={12} md={4} className={styles.image}>
               <img src={product.photo} alt={product.title} />
+              {product.photo2 && (
+                <div>
+                  <ExpandMoreIcon className={styles.moreIcon} />
+                  <img
+                    src={product.photo2}
+                    alt={product.title}
+                    className={styles.nextImage}
+                  />
+                </div>
+              )}
             </Grid>
             <Grid item xs={12} md={4}>
               <form onSubmit={this.addToCartHandler}>
@@ -199,7 +210,4 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
-export {
-  Container as ProductPage,
-  Component as ProductPageComponent,
-};
+export { Container as ProductPage, Component as ProductPageComponent };
