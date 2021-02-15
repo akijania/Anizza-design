@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "run-p start:* ",
+    "start": "node backend/server.js",
     "start-silent": "run-p start > /dev/null",
-    "start:server": "npx nodemon backend/server.js",
+    "start:server": "npx node backend/server.js",
     "start:react": "react-scripts start",
     "start-and-test": "run-p start-silent test ",
     "build": "react-scripts build",
@@ -47,6 +47,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "express": "^4.17.1",
+    "helmet": "3.21.1",
     "joi": "^17.4.0",
     "lodash.throttle": "^4.1.1",
     "mongodb": "^3.6.3",
@@ -66,6 +67,8 @@
   },
   "devDependencies": {
     "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-define-map": "^7.12.13",
+    "@babel/helper-regex": "^7.10.5",
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "redux-devtools-extension": "^2.13.8"

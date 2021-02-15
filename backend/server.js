@@ -2,6 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
+
+require('dotenv').config();
 
 const productsRoutes = require('./routes/products.routes');
 const ordersRoutes = require('./routes/orders.routes');
@@ -9,6 +12,7 @@ const ordersRoutes = require('./routes/orders.routes');
 const app = express();
 
 /* MIDDLEWARE */
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +33,8 @@ app.use('*', (req, res) => {
 });
 
 /* MONGOOSE */
-mongoose.connect('mongodb://localhost:27017/AnizzaDesign', { useNewUrlParser: true, useUnifiedTopology: true });
+const dbURI = process.env.NODE_ENV === 'production' ? 'mongodb://localhost:27017/AnizzaDesign' : process.env.db_link;
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
   console.log('Successfully connected to the database');

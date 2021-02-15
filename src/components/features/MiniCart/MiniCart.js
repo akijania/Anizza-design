@@ -18,9 +18,19 @@ class Component extends React.Component {
     const { className, products, miniCartOpen } = this.props;
     if (products.length === 0)
       return (
-        <div className={styles.container}>
-          <div className={styles.btnClose}>x</div>
-          <p>-Your basket is currently empty-</p>
+        <div className={clsx(className, styles.root)}>
+          <div className={miniCartOpen ? styles.overlay : ''}>
+            <div
+              className={`${styles.cart} ${
+                !miniCartOpen ? styles.closeCart : ''
+              }`}
+            >
+              <div className={styles.container}>
+                <div className={styles.btnClose}>x</div>
+                <p>-Your basket is currently empty-</p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     else
