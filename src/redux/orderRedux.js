@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
+
 /* action name creator */
 const reducerName = 'orders';
 const createActionName = (name) => `app/${reducerName}/${name}`;
@@ -22,7 +24,7 @@ export const addOrderRequest = (data) => {
   return async (dispatch) => {
     dispatch(fetchStarted({ name: 'ADD_ORDER' }));
     try {
-      await Axios.post(`http://localhost:8000/api/orders`, data);
+      await Axios.post(`${API_URL}/orders`, data);
       dispatch(fetchSuccess({ name: 'ADD_ORDER' }));
     } catch (err) {
       dispatch(fetchError({ name: 'ADD_ORDER', error: err.message || true }));

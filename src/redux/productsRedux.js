@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { API_URL } from '../config';
 
 /* selectors */
 export const getAllProducts = ({products}) => products.data;
@@ -31,7 +32,7 @@ export const fetchPublishedProducts = () => {
     if (!products.data.length || products.loading.active === false) {
       dispatch(fetchStarted({ name: 'LOAD_PRODUCTS' }));
 
-      Axios.get('http://localhost:8000/api/products')
+      Axios.get(`${API_URL}/products`)
         .then((res) => {
           dispatch(loadProducts(res.data));
           dispatch(fetchSuccess({ name: 'LOAD_PRODUCTS' }));
@@ -47,7 +48,7 @@ export const fetchProduct = (id) => {
   return (dispatch, getState) => {
     dispatch(fetchStarted({ name: 'LOAD_PRODUCT' }));
 
-    Axios.get(`http://localhost:8000/api/products/${id}`)
+    Axios.get(`${API_URL}/products/${id}`)
       .then((res) => {
         dispatch(loadProduct(res.data));
         dispatch(fetchSuccess({ name: 'LOAD_PRODUCT' }));

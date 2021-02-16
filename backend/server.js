@@ -3,7 +3,6 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
-
 require('dotenv').config();
 
 const productsRoutes = require('./routes/products.routes');
@@ -21,15 +20,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api', productsRoutes);
 app.use('/api', ordersRoutes);
 
-/* API ERROR PAGES */
-app.use('/api', (req, res) => {
-  res.status(404).send({ post: 'Not found...' });
-});
 
 /* REACT WEBSITE */
 app.use(express.static(path.join(__dirname, '../build')));
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
+/* API ERROR PAGES */
+app.use('/api', (req, res) => {
+  res.status(404).send({ post: 'Not found...' });
 });
 
 /* MONGOOSE */
