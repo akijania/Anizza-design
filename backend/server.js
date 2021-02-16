@@ -32,7 +32,7 @@ app.use('/api', (req, res) => {
 });
 
 /* MONGOOSE */
-const dbURI = process.env.NODE_ENV === 'production' ? 'mongodb://localhost:27017/AnizzaDesign' : process.env.DB_LINK;
+const dbURI = process.env.NODE_ENV === 'production' ? process.env.DB_LINK: 'mongodb://localhost:27017/AnizzaDesign';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.once('open', () => {
