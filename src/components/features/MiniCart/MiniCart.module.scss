@@ -54,7 +54,12 @@
     background-color: $black;
     color: $white;
     outline: inherit;
+    border: none;
     cursor: pointer;
+
+    &:hover {
+      background-color: $veryDarkGray; 
+    }
   }
 
 }
