@@ -69,7 +69,7 @@ const Component = ({
             <img src={photo} alt={title}></img>
           </div>
         </Grid>
-        <Grid item xs={4} md={3} className={styles.content}>
+        <Grid item xs={8} md={3} className={styles.content}>
           <h2>{title}</h2>
           <p>size: {size}</p>
           <p>price: {price}$</p>
@@ -82,7 +82,7 @@ const Component = ({
             placeholder="any wishes? write it down!"
           ></textarea>
         </Grid>
-        <Grid item xs={2} md={1} className={styles.content}>
+        <Grid item xs={4} md={1} className={styles.content}>
           <div className={styles.productQuantity}>
             <p>
               <span
@@ -101,7 +101,7 @@ const Component = ({
             </p>
           </div>
         </Grid>
-        <Grid item xs={1} md={1} className={styles.content}>
+        <Grid item xs={3} md={1} className={styles.content}>
           {price * quantity}$
         </Grid>
         <Grid item xs={1} md={1} className={styles.content}>

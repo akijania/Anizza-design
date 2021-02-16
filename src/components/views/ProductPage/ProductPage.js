@@ -99,7 +99,7 @@ class Component extends React.Component {
       <div className={clsx(className, styles.root)}>
         <div className={styles.container}>
           <Grid container justify="flex-end">
-            <Grid item xs={12} md={4} className={styles.image}>
+            <Grid item xs={12} sm={6} md={4} className={styles.image}>
               <img src={product.photo} alt={product.title} />
               {product.photo2 && (
                 <div>
@@ -112,7 +112,7 @@ class Component extends React.Component {
                 </div>
               )}
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={6} md={4}>
               <form onSubmit={this.addToCartHandler}>
                 <div className={styles.content}>
                   <h2>{product.title}</h2>

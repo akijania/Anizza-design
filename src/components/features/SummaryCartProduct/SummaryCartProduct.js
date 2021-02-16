@@ -22,14 +22,14 @@ const Component = ({
           <img src={photo} alt={title}></img>
         </div>
       </Grid>
-      <Grid item xs={5} md={3} className={styles.content}>
+      <Grid item xs={8} md={3} className={styles.content}>
         <h2>{title}</h2>
         <p>size: {size}</p>
         <p>
           price: {price}$ x {quantity} = {price * quantity}$
         </p>
       </Grid>
-      <Grid item xs={2} md={2} className={styles.content}>
+      <Grid item xs={7} md={2} className={styles.content}>
         <p>{text} </p>
       </Grid>
       <Grid item xs={1} md={1} className={styles.content}>

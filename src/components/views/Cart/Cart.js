@@ -29,13 +29,11 @@ class Component extends React.Component {
             ))}
             <div className={styles.summary}>
               <h3>
-                Total price:
-                {products
+                {`Total price:  ${products
                   .map((item) => item.price * item.quantity)
                   .reduce(function (a, b) {
                     return a + b;
-                  })}
-                $
+                  })}$`}
               </h3>
               <Link to="/cart/summary">
                 <button>Continue</button>
