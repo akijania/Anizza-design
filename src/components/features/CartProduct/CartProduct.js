@@ -80,6 +80,7 @@ const Component = ({
             cols="20"
             onChange={(event) => handleText(event.currentTarget.value)}
             placeholder="any wishes? write it down!"
+            maxLength="50"
           ></textarea>
         </Grid>
         <Grid item xs={4} md={1} className={styles.content}>

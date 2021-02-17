@@ -10,7 +10,7 @@ router.post('/orders', async (req, res) => {
     title: Joi.string().required(),
     quantity: Joi.number().required(),
     price: Joi.number().required(),
-    text: Joi.string(),
+    text: Joi.string().max(50),
   });
   const schema = Joi.object({
     date: Joi.date().iso().required(),
